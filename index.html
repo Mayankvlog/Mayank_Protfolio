@@ -165,9 +165,9 @@
     }
 
     .hero-title {
-      font-size: clamp(22px, 3vw, 26px);
+      font-size: clamp(24px, 3.4vw, 30px);
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .hero-title span {
@@ -175,15 +175,15 @@
     }
 
     .hero-role {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--muted);
       margin-bottom: 10px;
     }
 
     .hero-sub {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--muted);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .hero-actions {
@@ -202,24 +202,17 @@
       position: relative;
       overflow: hidden;
       border-radius: var(--radius);
+      display: flex;
+      justify-content: center;
+      padding: 8px 0;
     }
 
     .photo-wrap img {
       width: 100%;
+      max-width: 260px;
       display: block;
       object-fit: cover;
-    }
-
-    .photo-label {
-      position: absolute;
-      left: 8px;
-      bottom: 8px;
-      padding: 3px 8px;
-      background: rgba(15,23,42,.9);
-      border-radius: 999px;
-      font-size: 11px;
-      color: #e5e7eb;
-      border: 1px solid #4b5563;
+      border-radius: 16px;
     }
 
     .grid-2 {
@@ -626,21 +619,6 @@
             <span class="p-tag">DVC</span>
           </div>
           <button class="link-btn" onclick="openLink('https://github.com/Mayankvlog/Toyota_mlops')">GitHub -></button>
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-head">
-          <div>
-          </div>
-        </div>
-        <div class="project-actions">
-          <div class="p-tags">
-            <span class="p-tag">Data Science</span>
-            <span class="p-tag">Visualization</span>
-            <span class="p-tag">ML</span>
-          </div>
-          <button class="link-btn" onclick="openLink('https://github.com/Mayankvlog/FiFa-data-science-projects')">GitHub -></button>
         </div>
       </div>
     </section>
