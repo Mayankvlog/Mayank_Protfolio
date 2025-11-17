@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mayank | MLOps Engineer & AI Developer</title>
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #0b1120;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --radius: 14px;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 0 0, #1f2937 0, transparent 55%), #020617;
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 14px 40px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      padding: 2px;
+      background: conic-gradient(from 180deg, #22c55e, #38bdf8, #a855f7, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #e5e7eb;
+    }
+
+    .brand h1 { font-size: 18px; }
+    .brand span {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0; height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width .2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    nav a:hover::after { width: 100%; }
+
+    .btn {
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 12px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #022c22;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border-color: var(--border);
+    }
+
+    .btn:hover {
+      filter: brightness(1.05);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 16px 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,.5);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .tag-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(22px, 3vw, 26px);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-role {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .hero-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .photo-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .photo-label {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      padding: 3px 8px;
+      background: rgba(15,23,42,.9);
+      border-radius: 999px;
+      font-size: 11px;
+      color: #e5e7eb;
+      border: 1px solid #4b5563;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    h2.sec-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .about-text {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .stat {
+      padding: 7px 8px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,.9);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .stat-value {
+      font-size: 13px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+
+    .chip {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .skill-list li {
+      list-style: none;
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .skill-list li::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .projects {
+      margin-bottom: 16px;
+    }
+
+    .project {
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 9px 9px 8px;
+      background: rgba(15,23,42,.9);
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .project-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .project-title { font-weight: 500; }
+    .project-tagline { font-size: 11px; color: var(--muted); }
+
+    .project-actions {
+      margin-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .p-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .p-tag {
+      padding: 1px 6px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+
+    .link-btn {
+      border-radius: 999px;
+      padding: 3px 7px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1.4fr);
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .contact-item {
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 7px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15,23,42,.9);
+    }
+
+    .contact-label { font-size: 11px; color: #6b7280; }
+    .contact-value { font-size: 12px; word-break: break-all; }
+
+    .c-btn {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 3px 7px;
+      font-size: 11px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    form label { font-size: 11px; color: #9ca3af; }
+    input, textarea {
+      width: 100%;
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #020617;
+      color: var(--text);
+      font-size: 12px;
+      margin-top: 2px;
+      margin-bottom: 6px;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    textarea { min-height: 70px; resize: vertical; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 6px;
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .toast {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      padding: 7px 10px;
+      font-size: 12px;
+      border-radius: 999px;
+      background: #0f172a;
+      color: #bbf7d0;
+      border: 1px solid var(--accent);
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      transition: .2s ease;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: minmax(0,1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .grid-2 { grid-template-columns: minmax(0,1fr); }
+      .contact-grid { grid-template-columns: minmax(0,1fr); }
+      .form-row { grid-template-columns: minmax(0,1fr); }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="avatar"><div class="avatar-inner">M</div></div>
+        <div>
+          <h1>Mayank</h1>
+          <span>MLOps Engineer & AI Developer</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="btn" onclick="scrollToId('contact')">Hire Me -></button>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Open for MLOps | AI | Data roles</span>
+        </div>
+        <h2 class="hero-title">Hi, I'm <span>Mayank</span></h2>
+        <p class="hero-role">MLOps Engineer & AI Developer</p>
+        <p class="hero-sub">
+          I build end-to-end ML systems: data pipelines, model training, experiment tracking and
+          deployment using tools like MLflow, Docker and DVC. I also work with NLP, deep learning and
+          data visualization.
+        </p>
+        <div class="hero-actions">
+          <button class="btn" onclick="openLink('https://www.linkedin.com/jobs/application-settings/?hideTitle=true')">View Resume</button>
+          <button class="btn-ghost" onclick="scrollToId('projects')">View ML Projects -></button>
+        </div>
+        <div class="hero-meta">
+          Python | ML | DL | NLP | MLOps | MLflow | Docker | DVC | CI/CD
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo-wrap">
+          <img src="https://media.licdn.com/dms/image/v2/D4D03AQEcHohOkf7M0A/profile-displayphoto-scale_400_400/B4DZebgkjGHMAg-/0/1750660698775?e=1764806400&v=beta&t=BE82Jf9WJFBjWsmLTKhonFa_IVTwvg2py2TVVUubwtQ" alt="Mayank profile" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT + SKILLS -->
+    <section class="grid-2">
+      <div class="card" id="about">
+        <h2 class="sec-title">About</h2>
+        <p class="about-text">
+          I'm a passionate MLOps Engineer and AI Developer skilled in Python, Machine Learning, Deep Learning and
+          Neural Networks. I enjoy turning data into insights and building AI-driven systems that solve real problems.
+        </p>
+        <p class="about-text">
+          My work includes NLP, data visualization and robust MLOps practices: experiment tracking, versioning and
+          reproducible deployments.
+        </p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-label">Name</div>
+            <div class="stat-value">Mayank</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Role</div>
+            <div class="stat-value">MLOps Engineer & AI Dev</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Focus</div>
+            <div class="stat-value">MLOps | NLP | DL</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Tools</div>
+            <div class="stat-value">MLflow | Docker | DVC</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="skills">
+        <h2 class="sec-title">Skills & Tech Stack</h2>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">Machine Learning</span>
+          <span class="chip">Deep Learning</span>
+          <span class="chip">Neural Networks</span>
+          <span class="chip">NLP</span>
+          <span class="chip">Data Visualization</span>
+        </div>
+        <ul class="skill-list">
+          <li>TensorFlow | Keras | Scikit-learn | SciPy</li>
+          <li>Pandas | NumPy</li>
+          <li>NLTK | spaCy</li>
+          <li>Matplotlib | Seaborn | Plotly</li>
+          <li>MongoDB | MySQL</li>
+          <li>Flask | Streamlit | HTML | CSS</li>
+          <li>MLflow | DVC | Dagshub</li>
+          <li>Docker | CircleCI | Git | GitHub</li>
+          <li>Tableau | Statistical Analysis</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="card projects" id="projects">
+      <h2 class="sec-title">Projects</h2>
+
+      <div class="project">
+        <div class="project-head">
+          <div>
+            <div class="project-title">Banking MLOps Project</div>
+            <div class="project-tagline">
+              Streamlit app to predict term deposit subscription using multiple ML models with MLflow and Docker.
+            </div>
+          </div>
+        </div>
+        <div class="project-actions">
+          <div class="p-tags">
+            <span class="p-tag">Streamlit</span>
+            <span class="p-tag">MLflow</span>
+            <span class="p-tag">Docker</span>
+          </div>
+          <button class="link-btn" onclick="openLink('https://github.com/Mayankvlog/Bank_mlops')">GitHub -></button>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div>
+            <div class="project-title">Adidas Sales Forecast</div>
+            <div class="project-tagline">
+              Sales prediction pipeline with MLflow integration, multiple models and interactive visualizations.
+            </div>
+          </div>
+        </div>
+        <div class="project-actions">
+          <div class="p-tags">
+            <span class="p-tag">Forecasting</span>
+            <span class="p-tag">MLflow</span>
+            <span class="p-tag">Pandas</span>
+          </div>
+          <button class="link-btn" onclick="openLink('https://github.com/Mayankvlog/Adidas_mlops')">GitHub -></button>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div>
+            <div class="project-title">Toyota Price Prediction</div>
+            <div class="project-tagline">
+              MLOps-enabled system for predicting Toyota prices with multiple models and visual analytics.
+            </div>
+          </div>
+        </div>
+        <div class="project-actions">
+          <div class="p-tags">
+            <span class="p-tag">Regression</span>
+            <span class="p-tag">MLflow</span>
+            <span class="p-tag">DVC</span>
+          </div>
+          <button class="link-btn" onclick="openLink('https://github.com/Mayankvlog/Toyota_mlops')">GitHub -></button>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div>
+          </div>
+        </div>
+        <div class="project-actions">
+          <div class="p-tags">
+            <span class="p-tag">Data Science</span>
+            <span class="p-tag">Visualization</span>
+            <span class="p-tag">ML</span>
+          </div>
+          <button class="link-btn" onclick="openLink('https://github.com/Mayankvlog/FiFa-data-science-projects')">GitHub -></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="card" id="contact">
+      <h2 class="sec-title">Contact</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-item">
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">mayank.kr0311@gmail.com</div>
+            </div>
+            <button class="c-btn" onclick="copyText('mayank.kr0311@gmail.com')">Copy</button>
+          </div>
+
+          <div class="contact-item">
+            <div>
+              <div class="contact-label">GitHub</div>
+              <div class="contact-value">github.com/Mayankvlog</div>
+            </div>
+            <button class="c-btn" onclick="openLink('https://github.com/Mayankvlog')">Open</button>
+          </div>
+
+          <div class="contact-item">
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">linkedin.com/in/mayank344/</div>
+            </div>
+            <button class="c-btn" onclick="openLink('https://www.linkedin.com/in/mayank344/')">Open</button>
+          </div>
+
+          <div class="contact-item">
+            <div>
+              <div class="contact-label">Resume (online)</div>
+              <div class="contact-value">LinkedIn Resume Settings</div>
+            </div>
+            <button class="c-btn" onclick="openLink('https://www.linkedin.com/jobs/application-settings/?hideTitle=true')">Open</button>
+          </div>
+        </div>
+
+        <form onsubmit="handleContact(event)">
+          <div class="form-row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+          </div>
+          <div>
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" placeholder="Role | project | collaboration" required />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Briefly describe what you need..." required></textarea>
+          </div>
+          <div class="form-footer">
+            <span id="formStatus">Typically responds within a day.</span>
+            <button class="btn" type="submit">Send Email</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <span>(c) <span id="year"></span> Mayank. All rights reserved.</span>
+      <span>MLOps | AI | Data Science</span>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast">Copied to clipboard</div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function scrollToId(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    function openLink(url) {
+      window.open(url, '_blank');
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(function () {
+        t.classList.remove('show');
+      }, 2000);
+    }
+
+    function copyText(text) {
+      if (!navigator.clipboard) {
+        const i = document.createElement('input');
+        i.value = text;
+        document.body.appendChild(i);
+        i.select();
+        document.execCommand('copy');
+        document.body.removeChild(i);
+        showToast('Copied to clipboard');
+        return;
+      }
+      navigator.clipboard.writeText(text)
+        .then(function () { showToast('Copied to clipboard'); })
+        .catch(function () { showToast('Copy failed'); });
+    }
+
+    function handleContact(e) {
+      e.preventDefault();
+      const f = e.target;
+      const name = f.name.value;
+      const email = f.email.value;
+      const subject = f.subject.value;
+      const message = f.message.value;
+
+      const body = [
+        'Hi Mayank,',
+        '',
+        message,
+        '',
+        'Regards,',
+        name + ' (' + email + ')'
+      ].join('\n');
+
+      const mailto = 'mailto:mayank.kr0311@gmail.com?subject=' +
+        encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+
+      document.getElementById('formStatus').textContent = 'Opening your email client...';
+      window.location.href = mailto;
+      showToast('Preparing email...');
+      setTimeout(function () {
+        f.reset();
+        document.getElementById('formStatus').textContent = 'Typically responds within a day.';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
